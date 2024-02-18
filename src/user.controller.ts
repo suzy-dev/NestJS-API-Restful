@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common"
+import { Body, Controller, Post, Get } from "@nestjs/common"
 import {UserRepository} from "./user.repository"
 
 @Controller('/users')
@@ -12,4 +12,10 @@ export class UserController {
         return dataUser
     }
 
+    @Get()
+    async listUser(){
+        return this.userRepository.list()
+    }
+
 }
+
